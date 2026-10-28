@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080b16">
+  <meta name="description" content="Personal portfolio of Md. Ibrahim — student, creative learner and aspiring web developer.">
+  <title>Md. Ibrahim | Personal Portfolio</title>
+  <style>
+    :root{
+      --bg:#080b16;--surface:#101629;--surface2:#151d33;--text:#f5f7ff;
+      --muted:#a5afc5;--accent:#9b8cff;--accent2:#57d9f5;--line:#26314b;
+      --max:1120px;--radius:22px
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:90px}
+    body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,"Noto Sans Bengali","Segoe UI",sans-serif;line-height:1.75}
+    body:before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(ellipse at 80% 10%,#453b8b22,transparent 35%),radial-gradient(ellipse at 10% 45%,#1e9db015,transparent 35%)}
+    a{color:inherit;text-decoration:none}
+    button,a{ -webkit-tap-highlight-color:transparent}
+    .container{width:min(var(--max),calc(100% - 40px));margin-inline:auto}
+    .header{position:sticky;top:0;z-index:20;background:#080b16eF;border-bottom:1px solid #26314b99;backdrop-filter:blur(16px)}
+    .nav{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:22px}
+    .brand{font-size:1.25rem;font-weight:850;letter-spacing:-.5px}
+    .brand b{color:var(--accent)}
+    .nav-links{display:flex;align-items:center;gap:26px;color:var(--muted);font-size:.94rem}
+    .nav-links a:hover,.nav-links a:focus-visible{color:var(--text)}
+    .nav-cta{padding:9px 15px;border:1px solid #8b7cf477;border-radius:12px;color:var(--text)!important}
+    .menu-btn{display:none;background:var(--surface2);border:1px solid var(--line);color:var(--text);border-radius:10px;padding:9px 12px;font-size:1rem}
+    .hero{min-height:calc(90vh - 76px);display:grid;grid-template-columns:1.15fr .85fr;align-items:center;gap:64px;padding-block:76px}
+    .eyebrow{display:inline-flex;align-items:center;gap:10px;color:#c3bbff;background:#9b8cff14;border:1px solid #9b8cff35;border-radius:999px;padding:6px 13px;font-size:.84rem;font-weight:650}
+    .dot{width:7px;height:7px;border-radius:50%;background:#57e6a6;box-shadow:0 0 12px #57e6a6}
+    h1{font-size:clamp(2.6rem,6.2vw,5.2rem);line-height:1.12;letter-spacing:-2px;margin:22px 0 18px}
+    .gradient{background:linear-gradient(100deg,#c5baff,#8b9cff 52%,#64e3ef);background-clip:text;-webkit-background-clip:text;color:transparent}
+    .hero-copy{max-width:650px;color:var(--muted);font-size:1.05rem}
+    .actions{display:flex;flex-wrap:wrap;gap:13px;margin-top:30px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;border-radius:13px;padding:12px 19px;font-weight:750;border:1px solid var(--line);transition:transform .2s,border-color .2s,background .2s}
+    .btn:hover{transform:translateY(-3px)}
+    .btn-primary{border:0;color:#0a0d19;background:linear-gradient(115deg,#b7aaff,#67dff0)}
+    .btn-secondary{background:#ffffff05}
+    .hero-note{margin-top:24px;color:#77839f;font-size:.85rem}
+    .visual{position:relative;display:grid;place-items:center;min-height:390px}
+    .orb{position:absolute;width:310px;height:310px;border-radius:50%;background:linear-gradient(140deg,#8b5cf6,#3a6bca 55%,#37d7dc);filter:blur(1px);opacity:.22}
+    .profile-card{position:relative;width:min(350px,100%);padding:18px;border:1px solid #9b8cff55;border-radius:28px;background:linear-gradient(145deg,#18213bdf,#0d1324f2);box-shadow:0 28px 90px #0008,0 0 45px #8b5cf622;transform:rotate(2deg)}
+    .profile-frame{aspect-ratio:4/4.6;border-radius:19px;overflow:hidden;background:linear-gradient(145deg,#222d4a,#12182a);display:grid;place-items:center}
+    .profile-frame img{width:100%;height:100%;object-fit:cover;display:block}
+    .photo-placeholder{text-align:center;padding:24px;color:#b7c1d9}
+    .photo-placeholder .avatar{width:94px;height:94px;border-radius:50%;display:grid;place-items:center;margin:0 auto 14px;background:linear-gradient(145deg,#9b8cff,#57d9f5);color:#0a1020;font-size:2.5rem;font-weight:900}
+    .photo-placeholder small{display:block;color:#8995b0;margin-top:7px}
+    .profile-meta{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:16px 3px 2px}
+    .profile-meta strong{display:block;font-size:1.03rem}
+    .profile-meta span{color:var(--muted);font-size:.84rem}
+    .status{font-size:.75rem!important;color:#7af0b7!important;border:1px solid #57e6a644;background:#57e6a610;padding:5px 9px;border-radius:999px;white-space:nowrap}
+    section{padding:86px 0}
+    .section-head{text-align:center;max-width:690px;margin:0 auto 38px}
+    .kicker{color:var(--accent);font-weight:800;font-size:.8rem;letter-spacing:2px;text-transform:uppercase}
+    h2{font-size:clamp(1.9rem,4vw,2.8rem);letter-spacing:-.8px;line-height:1.25;margin:9px 0 12px}
+    .section-head p,.muted{color:var(--muted)}
+    .panel{border:1px solid var(--line);background:linear-gradient(145deg,#12192b,#0e1424);border-radius:var(--radius);padding:clamp(22px,4vw,36px)}
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:stretch}
+    .about-grid p{color:var(--muted);margin-top:0}
+    .quick-facts{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .fact{padding:17px;border-radius:15px;background:#ffffff04;border:1px solid var(--line)}
+    .fact strong{display:block;font-size:1.05rem}
+    .fact span{font-size:.85rem;color:var(--muted)}
+    .skills{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+    .skill{border:1px solid var(--line);background:var(--surface);padding:22px 12px;border-radius:17px;text-align:center;transition:transform .2s,border-color .2s}
+    .skill:hover{transform:translateY(-4px);border-color:#9b8cff99}
+    .skill-icon{font-size:1.8rem;display:block;margin-bottom:9px}
+    .skill strong{font-size:.94rem}
+    .skill small{display:block;color:var(--muted);font-size:.78rem;margin-top:4px}
+    .projects{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:17px}
+    .project{border:1px solid var(--line);border-radius:19px;background:var(--surface);padding:23px;display:flex;flex-direction:column;min-height:250px;transition:transform .2s,border-color .2s}
+    .project:hover{transform:translateY(-5px);border-color:#9b8cff88}
+    .project-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:17px}
+    .project-icon{width:47px;height:47px;display:grid;place-items:center;border-radius:14px;background:#9b8cff18;font-size:1.45rem}
+    .project-label{font-size:.74rem;color:#b9b0ff;border:1px solid #9b8cff44;padding:4px 8px;border-radius:99px}
+    .project h3{margin:0 0 8px;font-size:1.12rem}
+    .project p{color:var(--muted);font-size:.92rem;margin:0 0 17px}
+    .tags{display:flex;gap:7px;flex-wrap:wrap;margin-top:auto}
+    .tag{font-size:.75rem;color:#c4d0ea;background:#ffffff08;border:1px solid var(--line);padding:4px 8px;border-radius:7px}
+    .contact-panel{text-align:center;max-width:790px;margin:auto}
+    .contact-panel p{max-width:570px;margin:0 auto;color:var(--muted)}
+    .contact-links{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:26px}
+    .social-note{font-size:.82rem;color:#77839f;margin-top:18px}
+    footer{border-top:1px solid var(--line);padding:24px 0;color:#8792aa;font-size:.86rem}
+    .footer-inner{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+    .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+    .reveal.visible{opacity:1;transform:translateY(0)}
+    :focus-visible{outline:2px solid var(--accent2);outline-offset:4px}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}.reveal{opacity:1;transform:none}}
+    @media(max-width:850px){
+      .hero{grid-template-columns:1fr;gap:35px;text-align:center;padding-block:60px}
+      .hero-copy{margin-inline:auto}.actions{justify-content:center}.visual{grid-row:1;min-height:310px}
+      .profile-card{width:270px}.orb{width:250px;height:250px}
+      .about-grid{grid-template-columns:1fr}.projects{grid-template-columns:1fr 1fr}
+      .skills{grid-template-columns:repeat(2,1fr)}
+    }
+    @media(max-width:620px){
+      .container{width:min(var(--max),calc(100% - 30px))}
+      .nav{min-height:68px}.menu-btn{display:block}
+      .nav-links{display:none;position:absolute;top:67px;left:0;right:0;background:#0b1020;padding:18px 22px 22px;border-bottom:1px solid var(--line);flex-direction:column;align-items:stretch;gap:8px}
+      .nav-links.open{display:flex}.nav-links a{padding:8px 4px}.nav-cta{text-align:center}
+      h1{letter-spacing:-1.2px}.hero{min-height:auto;padding-top:43px;padding-bottom:48px}
+      .visual{min-height:270px}.profile-card{width:230px;padding:12px;border-radius:22px}.profile-meta{padding-top:11px}
+      section{padding:62px 0}.projects{grid-template-columns:1fr}.quick-facts{gap:9px}.fact{padding:13px}
+      .footer-inner{justify-content:center;text-align:center}
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <nav class="container nav" aria-label="প্রধান নেভিগেশন">
+      <a class="brand" href="#home" aria-label="My Portfolio home">My<span><b>Portfolio.</b></span></a>
+      <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="navLinks">☰ মেনু</button>
+      <div class="nav-links" id="navLinks">
+        <a href="#home">হোম</a>
+        <a href="#about">পরিচিতি</a>
+        <a href="#skills">দক্ষতা</a>
+        <a href="#projects">প্রজেক্ট</a>
+        <a class="nav-cta" href="#contact">যোগাযোগ ↗</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="container hero" id="home">
+      <div class="hero-content">
+        <div class="eyebrow"><span class="dot"></span> স্বাগতম আমার পোর্টফোলিওতে</div>
+        <h1>হ্যালো, আমি<br><span class="gradient" id="heroName">মোঃ ইব্রাহিম</span></h1>
+        <p class="hero-copy">একজন শিক্ষার্থী, সৃজনশীলভাবে শিখতে ভালোবাসি এবং ওয়েব ডেভেলপমেন্টের জগতে নিজের দক্ষতা গড়ে তুলছি। এখানে আমার শেখার যাত্রা, দক্ষতা ও প্রজেক্টগুলো দেখতে পারো।</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="#projects">প্রজেক্ট দেখো <span aria-hidden="true">↗</span></a>
+          <a class="btn btn-secondary" href="#about">আমার সম্পর্কে</a>
+        </div>
+        <p class="hero-note">✦ শেখা • তৈরি করা • প্রতিদিন আরও ভালো হওয়া</p>
+      </div>
+      <div class="visual" aria-label="প্রোফাইল কার্ড">
+        <div class="orb" aria-hidden="true"></div>
+        <div class="profile-card">
+          <div class="profile-frame" id="profileFrame">
+            <div class="photo-placeholder">
+              <div class="avatar">ই</div>
+              <strong>তোমার ছবি এখানে</strong>
+              <small>নিজের ছবি যোগ করতে নিচের নির্দেশনা দেখো</small>
+            </div>
+          </div>
+          <div class="profile-meta">
+            <div><strong id="cardName">মোঃ ইব্রাহিম</strong><span>Student · Aspiring Developer</span></div>
+            <span class="status">● Learning</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-head">
+          <div class="kicker">About me</div>
+          <h2>আমার <span class="gradient">সম্পর্কে</span></h2>
+          <p>আমার পরিচয়, আগ্রহ এবং ভবিষ্যতের লক্ষ্য।</p>
+        </div>
+        <div class="about-grid">
+          <div class="panel">
+            <h3>আমার গল্প</h3>
+            <p>আসসালামু আলাইকুম! আমি মোঃ ইব্রাহিম। আমি একজন শিক্ষার্থী এবং নতুন প্রযুক্তি সম্পর্কে জানতে ও শিখতে আগ্রহী। HTML, CSS ও JavaScript দিয়ে ওয়েবসাইট তৈরি শেখার মাধ্যমে নিজের আইডিয়াগুলো বাস্তব রূপ দিতে চাই।</p>
+            <p>এই পোর্টফোলিও আমার শেখার যাত্রার একটি অংশ। নতুন কাজ যোগ হওয়ার সঙ্গে সঙ্গে এখানে আমার প্রজেক্ট ও অভিজ্ঞতা আপডেট করব।</p>
+          </div>
+          <div class="panel quick-facts">
+            <div class="fact"><strong>শিক্ষার্থী</strong><span>বর্তমান পরিচয়</span></div>
+            <div class="fact"><strong>Web Design</strong><span>শেখার ক্ষেত্র</span></div>
+            <div class="fact"><strong>প্র্যাকটিস</strong><span>প্রতিদিন উন্নতি</span></div>
+            <div class="fact"><strong>নতুন লক্ষ্য</strong><span>আরও প্রজেক্ট তৈরি</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <div class="section-head">
+          <div class="kicker">What I learn</div>
+          <h2>আমার <span class="gradient">দক্ষতা</span></h2>
+          <p>যেসব প্রযুক্তি শিখছি এবং নিজের প্রজেক্টে ব্যবহার করার অনুশীলন করছি।</p>
+        </div>
+        <div class="skills">
+          <div class="skill"><span class="skill-icon">🌐</span><strong>HTML5</strong><small>ওয়েব পেজের কাঠামো</small></div>
+          <div class="skill"><span class="skill-icon">🎨</span><strong>CSS3</strong><small>স্টাইল ও রেসপনসিভ ডিজাইন</small></div>
+          <div class="skill"><span class="skill-icon">⚡</span><strong>JavaScript</strong><small>ইন্টারঅ্যাকটিভ ফিচার</small></div>
+          <div class="skill"><span class="skill-icon">📱</span><strong>Mobile First</strong><small>মোবাইল-ফ্রেন্ডলি পেজ</small></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <div class="section-head">
+          <div class="kicker">Selected work</div>
+          <h2>আমার <span class="gradient">প্রজেক্ট</span></h2>
+          <p>এগুলো নমুনা কার্ড। নিজের তৈরি বাস্তব প্রজেক্ট অনুযায়ী নাম, বিবরণ ও লিংক পরিবর্তন করো।</p>
+        </div>
+        <div class="projects">
+          <article class="project">
+            <div class="project-top"><div class="project-icon">✦</div><span class="project-label">Portfolio</span></div>
+            <h3>Personal Portfolio</h3>
+            <p>নিজের পরিচয়, দক্ষতা এবং কাজ সুন্দরভাবে উপস্থাপনের জন্য এই ওয়েবসাইট।</p>
+            <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span></div>
+          </article>
+          <article class="project">
+            <div class="project-top"><div class="project-icon">📚</div><span class="project-label">Learning</span></div>
+            <h3>Study Resource</h3>
+            <p>পড়াশোনার নোট, গুরুত্বপূর্ণ লিংক বা শেখার রিসোর্স সাজানোর প্রজেক্টের নমুনা।</p>
+            <div class="tags"><span class="tag">Education</span><span class="tag">Web</span></div>
+          </article>
+          <article class="project">
+            <div class="project-top"><div class="project-icon">🚀</div><span class="project-label">Coming soon</span></div>
+            <h3>পরবর্তী প্রজেক্ট</h3>
+            <p>তোমার পরবর্তী বাস্তব প্রজেক্টের নাম ও বিবরণ এখানে যোগ করো।</p>
+            <div class="tags"><span class="tag">Creative</span><span class="tag">In progress</span></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="contact-panel panel">
+          <div class="kicker">Get in touch</div>
+          <h2>চলো <span class="gradient">যোগাযোগ করি</span></h2>
+          <p>কোনো প্রজেক্ট, আইডিয়া বা শেখার অভিজ্ঞতা নিয়ে কথা বলতে চাইলে আমার সঙ্গে যোগাযোগ করতে পারো। নিচের লিংকগুলো নিজের তথ্য দিয়ে আপডেট করতে হবে।</p>
+          <div class="contact-links">
+            <a class="btn btn-primary" id="emailLink" href="mailto:your-email@example.com">✉ ইমেইল করো</a>
+            <a class="btn btn-secondary" id="githubLink" href="https://github.com/" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+            <a class="btn btn-secondary" id="facebookLink" href="https://facebook.com/" target="_blank" rel="noopener noreferrer">Facebook ↗</a>
+          </div>
+          <p class="social-note">নোট: লিংকগুলো নিজের আসল প্রোফাইল অনুযায়ী পরিবর্তন করো।</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <span>© <span id="year"></span> Md. Ibrahim. All rights reserved.</span>
+      <a href="#home">উপরে ফিরে যাও ↑</a>
+    </div>
+  </footer>
+
+  <script>
+    // নিজের তথ্য এখানে পরিবর্তন করো
+    const portfolio = {
+      name: "মোঃ ইব্রাহিম",
+      email: "your-email@example.com",
+      github: "https://github.com/",
+      facebook: "https://facebook.com/",
+      // ছবির ফাইল একই repository-তে থাকলে উদাহরণ: "profile.jpg"
+      photo: ""
+    };
+
+    document.getElementById("heroName").textContent = portfolio.name;
+    document.getElementById("cardName").textContent = portfolio.name;
+    document.title = portfolio.name + " | Personal Portfolio";
+    document.getElementById("year").textContent = new Date().getFullYear();
+    document.getElementById("emailLink").href = "mailto:" + portfolio.email;
+    document.getElementById("githubLink").href = portfolio.github;
+    document.getElementById("facebookLink").href = portfolio.facebook;
+
+    if (portfolio.photo.trim()) {
+      const img = document.createElement("img");
+      img.src = portfolio.photo;
+      img.alt = portfolio.name + " এর প্রোফাইল ছবি";
+      img.onerror = () => {
+        document.getElementById("profileFrame").innerHTML =
+          '<div class="photo-placeholder"><div class="avatar">ই</div><strong>ছবি লোড হয়নি</strong><small>ছবির ফাইলের নাম পরীক্ষা করো</small></div>';
+      };
+      document.getElementById("profileFrame").replaceChildren(img);
+    }
+
+    const menuBtn = document.getElementById("menuBtn");
+    const navLinks = document.getElementById("navLinks");
+    menuBtn.addEventListener("click", () => {
+      const isOpen = navLinks.classList.toggle("open");
+      menuBtn.setAttribute("aria-expanded", String(isOpen));
+    });
+    navLinks.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+        menuBtn.setAttribute("aria-expanded", "false");
+      });
+    });
+
+    if ("IntersectionObserver" in window &&
+        !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+      document.querySelectorAll(".panel, .skill, .project, .section-head").forEach(el => {
+        el.classList.add("reveal");
+        observer.observe(el);
+      });
+    }
+  </script>
+</body>
+</html>
